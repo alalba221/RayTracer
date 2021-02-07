@@ -25,7 +25,7 @@ void Camera::Click(const Scene& scene)
             Vector3f dir = nearOri + u* m_nearWidth * m_u + v* m_nearHeight * m_v - m_camPosition;
             framebuffer[m++] = CastRay(m_camPosition, dir, scene, 0);
         }
-        //UpdateProgress(j / (float)scene.height);
+        UpdateProgress(j / (float)m_imageplane.height);
     }
 
 
@@ -50,6 +50,17 @@ void Camera::Click(const Scene& scene)
 
 Vector3f Camera::CastRay(const Vector3f& orig, const Vector3f& dir, const Scene& scene, int depth) const
 {
+    
+    for (const auto& i : scene.get_objects()) {
+        float tnear;
+        uint32_t indexK;
+        Vector2f uvK;
+        if (i->intersect(orig, dir, tnear, indexK, uvK)) {
+            return Vector3f(1, 0, 0);
+        }
+    }
+    
+    
     float t = 0.5 * (dir.y + 1.0);
     return (1.0 - t) * Vector3f(1.0, 1.0, 1.0) + t * Vector3f(0.5, 0.7, 1.0);
 }

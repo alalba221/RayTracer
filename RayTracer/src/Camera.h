@@ -1,7 +1,9 @@
 #pragma once
 #include <fstream>
 #include"Scene.h"
+#include "global.h"
 #include <vector>
+
 class ImagePlane {
 public:
 	double width = 400;

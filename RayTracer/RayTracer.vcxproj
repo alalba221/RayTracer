@@ -84,15 +84,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Object.cpp" />
     <ClCompile Include="src\Ray.cpp" />
     <ClCompile Include="src\Scene.cpp" />
     <ClCompile Include="src\Camera.cpp" />
     <ClCompile Include="src\Application.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Object.h" />
+    <ClInclude Include="src\global.h" />
     <ClInclude Include="src\Ray.h" />
     <ClInclude Include="src\Scene.h" />
     <ClInclude Include="src\Camera.h" />
+    <ClInclude Include="src\Sphere.h" />
     <ClInclude Include="src\Vector.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
